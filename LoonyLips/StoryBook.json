@@ -1,0 +1,10 @@
+[
+		{
+			"prompts": ["who?", "what did they eat?", "where did they eat it?"],
+			"story" : "Once upon a time %s ate a %s at the %s!"
+		},
+		{
+			"prompts": ["what lands?", "who was it?", "what did they fight?", "what sort of battle?"],
+		  "story" : "In the land of %s, %s fought a %s in a %s battle!"
+		}
+]

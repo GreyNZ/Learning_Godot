@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Hoppy_Days_Assets/GFX/Background/bg_layer1.png" type="Texture" id=1]
+[ext_resource path="res://Hoppy_Days_Assets/Fonts/candles_.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Level/EndGame.gd" type="Script" id=3]
+[ext_resource path="res://Hoppy_Days_Assets/SFX/Summer_Park.ogg" type="AudioStream" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 2 )
+
+[node name="GameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="CenterContainer" type="CenterContainer" parent="TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -183.5
+margin_top = -43.0
+margin_right = 183.5
+margin_bottom = 43.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/CenterContainer"]
+margin_right = 367.0
+margin_bottom = 86.0
+
+[node name="Label" type="Label" parent="TextureRect/CenterContainer/VBoxContainer"]
+margin_right = 367.0
+margin_bottom = 62.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Game Over"
+uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/CenterContainer/VBoxContainer"]
+margin_top = 66.0
+margin_right = 367.0
+margin_bottom = 86.0
+alignment = 1
+
+[node name="ContinueBtn" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 127.0
+margin_right = 196.0
+margin_bottom = 20.0
+text = "Continue"
+
+[node name="QuitBtn" type="Button" parent="TextureRect/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 200.0
+margin_right = 240.0
+margin_bottom = 20.0
+text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
+[connection signal="pressed" from="TextureRect/CenterContainer/VBoxContainer/HBoxContainer/ContinueBtn" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="TextureRect/CenterContainer/VBoxContainer/HBoxContainer/QuitBtn" to="." method="_on_Button2_pressed"]
